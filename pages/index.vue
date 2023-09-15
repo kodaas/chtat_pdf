@@ -6,7 +6,7 @@
                 research with AI</p>
 
             <Button>
-                <Icon class="mr-1 text-xl" name="bxl:google" /> Login to get started
+                Login to get started
             </Button>
         </section>
     </main>
