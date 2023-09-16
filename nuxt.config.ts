@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
 
-  modules: ["@nuxtjs/supabase"],
+  modules: ["@nuxtjs/supabase", "@vueuse/nuxt"],
 
   supabase: {
     url: process.env.SUPABASE_URL,
