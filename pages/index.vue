@@ -3,8 +3,8 @@ const client = useSupabaseClient()
 const user = useSupabaseUser()
 
 
-function Login() {
-    client.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: 'http://localhost:3000/chats' } })
+async function Login() {
+    await client.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.href}chats` } })
 }
 
 </script>
@@ -26,8 +26,8 @@ function Login() {
             </Button>
         </section>
 
-        <section class="bg-red-300">
-            <h2>Drop zone</h2>
-        </section>
+
+        <DropZone />
+
     </main>
 </template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const client = useSupabaseClient();
 
-function Logout() {
-    client.auth.signOut();
+async function Logout() {
+    await client.auth.signOut();
     navigateTo("/");
 
 }
