@@ -24,9 +24,12 @@
     "vue-tsc": "^1.8.8"
   },
   "dependencies": {
+    "@pinecone-database/pinecone": "^1.0.1",
+    "@supabase/supabase-js": "^2.33.2",
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.28.6",
     "pg": "^8.11.3",
-    "postgres": "^3.3.5"
+    "postgres": "^3.3.5",
+    "vue-toast-notification": "3.0"
   }
 }

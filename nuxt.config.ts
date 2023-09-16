@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/main.css", "vue-toast-notification/dist/theme-sugar.css"],
 
   typescript: {
     typeCheck: true,
