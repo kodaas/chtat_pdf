@@ -1,8 +1,12 @@
 <script setup lang="ts">
 const client = useSupabaseClient()
+
 const user = useSupabaseUser()
+
 const isProcessing = ref(false)
+
 const fileName = ref<string>('')
+
 
 async function Login() {
     await client.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.href}chats` } })
@@ -16,8 +20,11 @@ async function handleUpload({ file_key, file_name }: { file_key: string, file_na
         fileName.value = file_name
         isProcessing.value = true
 
-        const { data } = await useFetch('/api/create-chat', { method: 'post', body: { file_key, file_name } })
-        console.log(data.value)
+        const { data } = await useFetch('/api/create-chat', { method: 'post', body: { file_key, file_name, user_id: user.value?.id } })
+
+        if (data.value?.chat_id) {
+            navigateTo(`/chats?id=${data.value?.chat_id}&url=${data.value?.pdf_url}`)
+        }
 
     }
 
@@ -55,7 +62,7 @@ async function handleUpload({ file_key, file_name }: { file_key: string, file_na
 
 
         <section v-if="isProcessing" class="p-1.5 h-auto bg-white rounded-xl text-dark">
-            <div class="flex flex-col w-96 gap-y-2 justify-center items-center border-2 border-dashed rounded-xl border-gray-400 text-slate-500 bg-gray-100 py-8 cursor-wait"
+            <div class="flex flex-col w-96 px-1 gap-y-2 justify-center items-center border-2 border-dashed rounded-xl border-gray-400 text-slate-500 bg-gray-100 py-8 cursor-wait"
                 for="file">
                 <BlockWaveLoader />
 

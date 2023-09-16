@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "set NODE_OPTIONS='--max_old_space_size=5120' && nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -24,10 +24,15 @@
     "vue-tsc": "^1.8.8"
   },
   "dependencies": {
+    "@huggingface/inference": "^2.6.1",
+    "@pinecone-database/doc-splitter": "^0.0.1",
     "@pinecone-database/pinecone": "^1.0.1",
     "@supabase/supabase-js": "^2.33.2",
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.28.6",
+    "langchain": "^0.0.150",
+    "md5": "^2.3.0",
+    "pdf-parse": "^1.1.1",
     "pg": "^8.11.3",
     "postgres": "^3.3.5",
     "vue-toast-notification": "3.0"

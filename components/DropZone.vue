@@ -40,16 +40,18 @@ function onChange(event: Event) {
     }
 }
 
-async function uploadFile(file: File) {
+async function uploadFile(file: File): Promise<{ file_key: string, file_name: string }> {
 
     const file_key = `${user.value?.id}/${Date.now().toString()}-${file.name.replaceAll(' ', '_')}`
+    // const file_key = "9b261f83-04d1-455f-8e97-f4177cb822ba/1694882787285-NDA_FIYINFOLUWA_AJALA.pdf"
 
     await client.storage.from(BUCKET_NAME).upload(file_key, file, {
         contentType: file.type
     })
 
     return {
-        file_key, file_name: file.name
+        file_key,
+        file_name: file.name
     }
 }
 

@@ -1,7 +1,11 @@
 <script setup lang="ts">
 const client = useSupabaseClient();
+const route = useRoute()
+const url = ref()
 
-const url = "https://hlzhuospindjbgypbuta.supabase.co/storage/v1/object/public/chat_pdf/60438561-2271-4106-a668-84892b0410d8/1694856773091-Byte_pair_encoding_-_Wikipedia.pdf"
+onBeforeMount(() => {
+    url.value = route.query.url
+})
 
 async function Logout() {
     await client.auth.signOut();

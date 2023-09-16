@@ -5,5 +5,5 @@ const props = defineProps<{
 </script>
 
 <template>
-    <iframe :src="props.url" class="w-full h-full" frameborder="0"></iframe>
+    <iframe :src="props.url" class="w-full h-screen" frameborder="0"></iframe>
 </template>
